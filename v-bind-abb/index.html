@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js3</title>
+</head>
+<body>
+    <div id="app">
+        <!-- v-bindを使った場合 -->
+        <p>
+            <a v-bind:href="url" target="_blank">Link1</a>
+        </p>
+        <!-- 省略したv-bind場合 -->
+        <p>
+            <a :href="url" target="_blank">Link2</a>
+        </p>
+    </div>
+    <script src="https://unpkg.com/vue@3.1.5"></script>
+    <script>
+        const App = Vue.createApp({
+            data: () => ({
+                url: 'https://www.kyon-magazine.com/'
+            })
+        }).mount("#app")
+    </script>
+</body>
+</html>
