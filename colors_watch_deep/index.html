@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="color in colors">
+                {{ color.name }}
+            </li>
+        </ul>
+        <button v-on:click="onClick">Click</button>
+    </div>
+</body>
+    <script src="https://unpkg.com/vue@3.1.5"></script>
+    <script>
+        const app = Vue.createApp({
+            data: () => ({
+                colors: [
+                    {name: 'Red'},
+                    {name: 'Green'},
+                    {name: 'Blue'},
+                ]
+            }),
+            watch: {
+                colors: {
+                    handler:function(newValue, oldValue) {
+                        console.log('Update!')
+                    },
+                    deep:true
+                }
+            },
+            methods: {
+                onClick: function(event) {
+                    this.colors[1].name = 'White'
+                }
+            }
+        }).mount("#app")
+    </script>
+</html>
